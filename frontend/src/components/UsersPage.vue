@@ -1,0 +1,41 @@
+<template>
+  <div>
+    <h1>사용자 상세목록</h1>
+    <strong v-for="user in users" v-bind:key="user.id">{{user.name}},{{user.age}}</strong>
+
+    <button v v-on:click="postNewMonitoring">테스틍</button>
+  </div>
+</template>
+
+<script>
+export default {
+  created: function () {
+    var id = this.$route.params.id
+    this.$http.get(`/api/tests/${id}`)
+      .then((response) => {
+        this.users = response.data
+        console.log(response)
+      })
+  },
+  data: function () {
+    return {
+      users: []
+    }
+  },
+  methods: {
+    postNewMonitoring: function () {
+      this.$http.post('/api/monitorings',
+        {
+          'id': '2016112148',
+          'type': 2,
+          'operation': 'drop CapstioneDesignProject1',
+          'ip': '211.192.49.151',
+          'time': '2019-06-19 12:25'
+        })
+        .then((response) => {
+          console.log(response)
+        })
+    }
+  }
+}
+</script>
