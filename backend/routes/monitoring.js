@@ -21,6 +21,7 @@ router.get('/:id', function (req, res, next) {
 router.post('/', function (req, res, next) {
 
     // new Date().toString()
+    req.body.ip = req.ip.toString()
     monitorings.push(req.body)
 
     fs.writeFileSync(filename, JSON.stringify(monitorings), 'utf8', (err) => {

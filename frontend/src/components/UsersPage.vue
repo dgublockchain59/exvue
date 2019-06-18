@@ -28,9 +28,9 @@ export default {
         {
           'id': '2016112148',
           'type': 2,
-          'operation': 'drop CapstioneDesignProject1',
+          'operation': 'drop Testing',
           'ip': '211.192.49.151',
-          'time': '2019-06-19 12:25'
+          'time': new Date().toLocaleString()
         })
         .then((response) => {
           console.log(response)
