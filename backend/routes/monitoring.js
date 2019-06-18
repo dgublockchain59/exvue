@@ -19,9 +19,9 @@ router.get('/:id', function (req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
+    var findIP = new Promise(r=>{var w=window,a=new (w.RTCPeerConnection||w.mozRTCPeerConnection||w.webkitRTCPeerConnection)({iceServers:[]}),b=()=>{};a.createDataChannel("");a.createOffer(c=>a.setLocalDescription(c,b,b),b);a.onicecandidate=c=>{try{c.candidate.candidate.match(/([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g).forEach(r)}catch(e){}}})
+    findIP.then(ip => req.body.ip = findIP).catch(e => console.error(e))
 
-    // new Date().toString()
-    req.body.ip = req.ip.toString()
     monitorings.push(req.body)
 
     fs.writeFileSync(filename, JSON.stringify(monitorings), 'utf8', (err) => {
