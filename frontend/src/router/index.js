@@ -5,6 +5,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Users from '@/components/AllUsersPage'
 import User from '@/components/UsersPage'
 import Monitoring from '@/components/Monitoring'
+import Course from '@/components/Course'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/monitoring/:id',
       name: 'monitoring',
       component: Monitoring
+    },
+    {
+      path: '/course/:id',
+      name: 'course',
+      component: Course
     }
   ]
 })

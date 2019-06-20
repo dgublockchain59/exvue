@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 
 var tests = require('./routes/test'); // added
 var monitorings = require('./routes/monitoring'); // added
+var courses = require('./routes/course'); //added
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use('/users', usersRouter);
 
 app.use('/api/tests',tests); //added
 app.use('/api/monitorings',monitorings); // added
+app.use('/api/course',courses); //added
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
